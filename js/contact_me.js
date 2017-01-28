@@ -10,9 +10,6 @@ $(function() {
             $("#btnSubmit").attr("disabled", true);
             event.preventDefault();
 
-            var destination = 'email.domckellar@gmail.com';
-            var url = 'https://formspree.io/' + destination;
-
             // NOTE: get values from FORM
             var name = $("input#name").val();
             var email = $("input#email").val();
@@ -24,10 +21,8 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
 
-
-
             $.ajax({
-                url: url,//"././mail/contact_me.php",
+                url: 'https://formspree.io/email.domckellar@gmail.com',
                 method: "POST",
                 data: {
                     name: name,
@@ -35,8 +30,8 @@ $(function() {
                     email: email,
                     message: message
                 },
-                dataType: "json",
-                cache: false,
+                dataType: "json"
+                // cache: false,
                 success: function() {
                     // Enable button & show success message
                     $("#btnSubmit").attr("disabled", false);
