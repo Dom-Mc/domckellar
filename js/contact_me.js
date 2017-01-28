@@ -9,8 +9,11 @@ $(function() {
             // Prevent spam click and default submit behaviour
             $("#btnSubmit").attr("disabled", true);
             event.preventDefault();
-            
-            // get values from FORM
+
+            var destination = 'email.domckellar@gmail.com';
+            var url = 'https://formspree.io/' + destination;
+
+            // NOTE: get values from FORM
             var name = $("input#name").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();
@@ -20,15 +23,19 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+
+
+
             $.ajax({
-                url: "././mail/contact_me.php",
-                type: "POST",
+                url: url,//"././mail/contact_me.php",
+                method: "POST",
                 data: {
                     name: name,
                     phone: phone,
                     email: email,
                     message: message
                 },
+                dataType: "json",
                 cache: false,
                 success: function() {
                     // Enable button & show success message

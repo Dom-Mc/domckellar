@@ -82,7 +82,7 @@ gulp.task('concatScripts', function(){
 
     // Contact Form JavaScript
     'js/jqBootstrapValidation.js',
-    'js/contact_me.js',
+    // 'js/contact_me.js',
 
     // Theme JavaScript
     'js/freelancer.js'
